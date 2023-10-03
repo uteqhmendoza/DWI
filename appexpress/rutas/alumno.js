@@ -5,29 +5,29 @@ const controlador = new Controller(new RepositorioAlumno());
 const router = express.Router();
 
 router.get('/',async (req,res) =>{
-    controlador.obtenerAlumnos()
-    .then((alumnos) => {
-        res.render('alumno.ejs',
-        {   pageName : "Alumnos",
+    controlador.obtenerAlumnos().then((alumnos) => {
+        res.render('./alumnos/Lista.ejs',{ 
+            pageName : "Alumnos",
             alumnos :alumnos
-        }
-        )
+        })
     })
-    
 });
 
-router.post('/',async (req,res) =>{
-    await controlador.agregarAlumno(req.body.nombre, req.body.email);
-    controlador.obtenerAlumnos()
-    .then((alumnos) => {
-        res.render('alumno.ejs',
-        {   pageName : "Alumnos",
-            alumnos :alumnos
-        }
-        )
-    })
-    
+router.get('/Registro',  async (req,res) => {
+    res.render('./alumnos/Formulario.ejs', {pageName : "Alumnos"})
 });
 
+router.post('/',async (req,res) => {
+    var nombre = req.body.nombre;
+    var email = req.body.email;
+    controlador.agregarAlumno(nombre,email).then(() => {
+        controlador.obtenerAlumnos().then((alumnos) => {
+            res.render('./alumnos/Lista.ejs',{ 
+                pageName : "Alumnos",
+                alumnos :alumnos
+            })
+        })
+    })
+})
 
 module.exports = router;

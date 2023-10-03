@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
-    <meta charset="UTF-8"></head>
-    <title>Home</title>
+    <head>
+        <%- include('./plantillas/head'); %>
+    </head>
     <body>
-        <h1><%- pageName %></h1>
+        <h1>Registro: <%- pageName %></h1>
         <form action="/alumnos" method="post">
             <fieldset>
               <legend>Registro de Alumno</legend>
@@ -16,10 +17,6 @@
             </fieldset>
           </form>
 
-        <ul>
-            <% alumnos.forEach(function(item,index) { %>
-                <li> <%= item.email %> </li>
-            <% }) %>
-        </ul>
+        
     </body>
 </html>

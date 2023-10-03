@@ -4,11 +4,11 @@ function Controller (repository) {
         obtenerAlumnos : async () => {
             return await repository.getAll();
         },
-        obtenerAlumnoPorId : (id) => {
-            return repository.getById(id);
+        obtenerAlumnoPorId : async (id) => {
+            return await repository.getById(id);
         },
-        agregarAlumno : (nombre, email) => {
-            repository.create(
+        agregarAlumno : async (nombre, email) => {
+           await repository.create(
                    {
                     "alumno_id" : email,
                     "nombre" : nombre,

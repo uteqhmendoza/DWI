@@ -10,11 +10,9 @@ router.get('/',async (req,res) =>{
 });
 
 router.post('/',async (req,res) => {
-    controlador.agregarAlumno(req.body.nombre, req.body.email)
+    controlador.agregarAlumno(req.body.name, req.body.email)
     res.status(200)
     res.json({ message : req.body.name})
 });
-
-
 
 module.exports = router;

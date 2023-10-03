@@ -3,7 +3,6 @@ const path = require("path")
 var bodyParser = require('body-parser');
 const app = express()
 
-
 app.use(bodyParser.urlencoded({
     extended: true
 }));
@@ -12,7 +11,7 @@ app.use(bodyParser.json());
 
 app.set('view engine', 'ejs');
 app.set('views',path.join(__dirname,'./views'))
-//app.use(express.json())
+
 
 const alumnos = require("./rutas/api/alumnos");
 const alumno = require("./rutas/alumno");
