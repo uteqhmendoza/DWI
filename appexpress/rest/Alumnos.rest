@@ -1,0 +1,19 @@
+POST http://localhost:3000/api/alumno http/1.1
+Content-Type: application/json
+
+{
+    "name" : "Uteq",
+    "email" : "1236@uteq.edu.mx"
+}
+
+###
+POST http://localhost:3000/book http/1.1
+Content-Type: application/json
+
+{
+    "name" : "hola",
+    "email" : "email"
+}
+
+###
+GET http://localhost:3000/alumnos HTTP/1.1
