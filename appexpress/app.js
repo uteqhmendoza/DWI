@@ -2,7 +2,7 @@ const express = require("express")
 const path = require("path")
 var bodyParser = require('body-parser');
 const app = express()
-
+// prueba de pull request 
 app.use(bodyParser.urlencoded({
     extended: true
 }));
