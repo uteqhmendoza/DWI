@@ -1,5 +1,4 @@
-import Alumno from "./components/Alumno";
-import Layout from "./components/Layout";
+import { Alumno, Profesor, Layout } from "./components";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Profesor from "./components/Profesor";
 
