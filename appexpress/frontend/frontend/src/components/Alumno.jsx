@@ -1,8 +1,14 @@
 import { useState,useEffect } from "react"
+import Box from '@mui/material/Box';
+import { DataGrid } from '@mui/x-data-grid';
 
 export default function Alumno({children, titulo, detalle = "cargando Alumnos"}) {
-    const [text, setText] = useState("");
-    const [alumnos, setAlumnos] = useState([]);
+    
+    const [data, setAlumnos] = useState([]);
+    const columns = [
+        { field: 'email', headerName: 'Email', width: 230 },
+        { field: 'nombre', headerName: 'Nombre', width: 230 }
+    ]
 
     useEffect(()=> {
         fetch("http://localhost:3000/api/alumno",{credentials: "include"})
@@ -15,15 +21,20 @@ export default function Alumno({children, titulo, detalle = "cargando Alumnos"})
     },[])
 
     return (
-        <>
-        <h1>{titulo}</h1>
-        <h2>{detalle}</h2>
-        <input type="text" onChange={(v) => setText(v.target.value)} ></input>
-         
-        <h1>{text}</h1>
-        <ul>
-         {alumnos.map(alumno => (<li>{alumno.nombre + " " +alumno.email}</li>))}
-        </ul>
-        </>
+      
+        <Box sx={{ height: 520, width: '100%' }}>
+          <h1>{titulo}</h1>
+        <DataGrid
+        rows={data}
+        columns={columns}
+        initialState={{
+          pagination: {
+            paginationModel: { page: 0, pageSize: 5 },
+          },
+        }}
+        pageSizeOptions={[5, 10]}
+        checkboxSelection
+      />
+      </Box>
     )
 }

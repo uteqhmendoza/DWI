@@ -61,6 +61,7 @@ app.use('/api/alumno',validarToken,alumnos)
 app.use('/alumnos',alumno)
 app.use('/api/registro',registro)
 app.use('/api/login', login)
+app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req,res) => {
     res.render('index.ejs')

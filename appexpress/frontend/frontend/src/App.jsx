@@ -24,10 +24,9 @@ function Home() {
 }
 
  function Content() {
-  const mensaje = "Alumnos están aprendiendo React";
   return (
     <>
-    <h1>Hola Mundo</h1>
+    <h3>Bienvenido</h3>
      
     
     <BrowserRouter>
@@ -35,11 +34,11 @@ function Home() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Alumno />} />
           <Route path="Alumno" element={<Alumno 
-                          titulo="Mi Componente Alumno"
-                          detalle={mensaje} />} />
+                          titulo="Alumnos"
+                          />} />
                           
           <Route path="Profesor" element={
-              <Profesor tittle="Mi Componente Alumno"
+              <Profesor tittle="Profesores"
                           >
                             <h2>Hola soy un profesor</h2>
                             <h3>Otro hijo </h3>
