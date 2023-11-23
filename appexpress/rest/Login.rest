@@ -1,0 +1,14 @@
+POST http://localhost:3000/api/login http/1.1
+Content-Type: application/json
+
+{
+    "email" : "humberto.mendoza2@uteq.edu.mx",
+    "password" : "P4ssw0rd3"
+
+}
+
+###
+GET http://localhost:3000/api/alumno http/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiMTIzNkB1dGVxLmVkdS5teCIsImlhdCI6MTY5ODcxNjkxN30.fINd-9EzdVPGYUgyG-aQVgv6tDigXDXeRNhRG9YQajY
+

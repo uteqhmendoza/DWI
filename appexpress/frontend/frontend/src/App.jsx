@@ -1,15 +1,35 @@
-import { Alumno, Profesor, Layout } from "./components";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Profesor from "./components/Profesor";
-
+import { Alumno, Profesor, Layout, Login } from "./components";
+import { BrowserRouter, Routes, Route, Router } from "react-router-dom";
+import { AuthProvider, useAuth } from "./contexts/auth";
 
 export default function App() {
+
+
+
+  return (
+    <AuthProvider>
+      <Home></Home>
+    </AuthProvider>
+  )
+}
+
+function Home() {
+  const { usuario } = useAuth()
+  if (usuario) {
+    return <Content></Content>
+  }
+
+  return <Login></Login>
+
+}
+
+ function Content() {
   const mensaje = "Alumnos están aprendiendo React";
   return (
     <>
     <h1>Hola Mundo</h1>
      
-
+    
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>

@@ -8,13 +8,11 @@ function Controller (repository) {
             return await repository.getById(id);
         },
         agregarAlumno : async (nombre, email) => {
-           await repository.create(
-                   {
+           await repository.create({
                     "alumno_id" : email,
                     "nombre" : nombre,
                     "email" : email
-                   } 
-            )
+                   })
         }
     }
 }

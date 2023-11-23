@@ -4,15 +4,12 @@ export default function Alumno({children, titulo, detalle = "cargando Alumnos"})
     const [text, setText] = useState("");
     const [alumnos, setAlumnos] = useState([]);
 
-    useEffect(()=>{
-        fetch("http://localhost:3000/api/alumno")
+    useEffect(()=> {
+        fetch("http://localhost:3000/api/alumno",{credentials: "include"})
         .then((res)=> res.json())
         .then((json)=> {
-            console.log("seta")
             setAlumnos(json.map(c=>c))
-            
-            
-        }
+         }
         )   
         
     },[])
